@@ -23,9 +23,9 @@ public class Scene {
         Geezer theGeezer = Geezer.getTheGeezer();
         //"https://cdn.njuics.cn/example.BubbleSorter.png"
         SteganographyClassLoader loader = new SteganographyClassLoader(
-                new URL("QuickSorter.png"));
+                new URL("https://github.com/jwork-2021/jw03-Jinglong-Liu/blob/main/S191220066/resources/SelectSorter.png"));
 
-        Class c = loader.loadClass("S191220066.QuickSorter");
+        Class c = loader.loadClass("S191220066.SelectSorter");
 
         Sorter sorter = (Sorter) c.newInstance();
 
@@ -34,7 +34,7 @@ public class Scene {
         String log = theGeezer.lineUp(line);
 
         BufferedWriter writer;
-        writer = new BufferedWriter(new FileWriter("result1.txt"));
+        writer = new BufferedWriter(new FileWriter("result2.txt"));
         writer.write(log);
         writer.flush();
         writer.close();
