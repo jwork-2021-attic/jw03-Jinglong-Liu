@@ -1,3 +1,6 @@
-
-![QuickSorter.png](https://i.loli.net/2021/09/28/iO4toLlA2QpWSEd.png)
-https://sm.ms/image/iO4toLlA2QpWSEd
+原图
+![origin](../resources/origin.jpeg)
+快速排序
+![quickSorter.png](../resources/QuickSorter.png)
+选择排序
+![selectSorter.png](../resources/SelectSorter.png)
