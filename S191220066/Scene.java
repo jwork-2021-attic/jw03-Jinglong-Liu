@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 
-import example.classloader.SteganographyClassLoader;
+import S191220066.classloader.SteganographyClassLoader;
 
 public class Scene {
 
