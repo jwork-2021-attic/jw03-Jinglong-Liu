@@ -1,8 +1,10 @@
 package S191220066;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 
 import S191220066.classloader.SteganographyClassLoader;
@@ -19,13 +21,14 @@ public class Scene {
         line.put(Gourd.FIVE, 2);
         line.put(Gourd.SIX, 4);
         line.put(Gourd.SEVEN, 0);
-
+        System.out.println(File.separator);
         Geezer theGeezer = Geezer.getTheGeezer();
         //"https://cdn.njuics.cn/example.BubbleSorter.png"
+        URL url = new File("/home/user/Desktop/workspace/java/jw03-Jinglong-Liu/S191220066/resources/QuickSorter.png").toURL();
         SteganographyClassLoader loader = new SteganographyClassLoader(
-                new URL("https://github.com/jwork-2021/jw03-Jinglong-Liu/blob/main/S191220066/resources/SelectSorter.png"));
-
-        Class c = loader.loadClass("S191220066.SelectSorter");
+                //new URL("https://github.com/jwork-2021/jw03-Jinglong-Liu/blob/main/S191220066/resources/SelectSorter.png"));
+                url);
+        Class c = loader.loadClass("S191220066.QuickSorter");
 
         Sorter sorter = (Sorter) c.newInstance();
 

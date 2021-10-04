@@ -42,11 +42,23 @@ Converts an array of bytes into an instance of class {@code Class},* with a give
 所以`Class c = loader.loadClass("example.BubbleSorter");`这一句是对图片解码，得到一个Class<?>的实例
 3、将Class类型转换为Sorter类型，完成解析还原全过程
 
-###排序图片
+###但是,实际上
+事情并不是想象的那么简单，以上答案看似合理，其实是不正确的(解析的过程)
+测试过程中，在SteganographyClassLoader的findClass中加print,加断点，乃至全部注释掉，结果仍正常运行，这说明根本没有跳转到这个方法！
+因为classpath有一个写好的BubbleSorter.java,系统会发现有这个文件，直接生成.class,并不会用图片，用自己写的findclass
+事实上，经过后期检验，example中，乃至自己生成的在github上的文件，都是无法正常读取的。而通过本地绝对路径，是可以获取的
+然后删掉BubbleSorter.java等java文件，无法跑通(图片错误)，经过测试，确实进入了自己写的classLoader
+最后图片改成本地绝对路径，可以运行
+经检验，自己生成的SelectSorter,QuickSorter图片可以读取用于排序的
+
+
+###排序图片：在resources目录下
 ####原图
 ![origin](../resources/origin.jpeg)
+https://github.com/jwork-2021/jw03-Jinglong-Liu/blob/main/S191220066/resources/SelectSorter.png
 ####快速排序
 ![quickSorter.png](../resources/QuickSorter.png)
+https://github.com/jwork-2021/jw03-Jinglong-Liu/blob/main/S191220066/resources/QuickSorter.png
 ####选择排序
 ![selectSorter.png](../resources/SelectSorter.png)
 备注：在本仓库的resources目录，github上可能无法预览
